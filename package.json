@@ -9,7 +9,9 @@
   },
   "browserslist": "defaults",
   "dependencies": {
-    "p5": "^0.10.2"
+    "matter-js": "^0.16.0",
+    "p5": "^0.10.2",
+    "poly-decomp": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
