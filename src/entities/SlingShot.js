@@ -7,7 +7,7 @@ export default class SlingShot extends Entity
         super(world, Constraint.create({
             pointA: { x, y },
             bodyB: body,
-            stiffness: 0.02,
+            stiffness: 0.2,
             length: 40
         }))
     }
