@@ -12,9 +12,11 @@ export default class Box extends Entity
 
     draw(p5) {
         const pos = this.body.position
+        const angle = this.body.angle
 
         p5.push()
         p5.translate(pos.x, pos.y)
+        p5.rotate(angle)
         if (this.image != null) {
             p5.image(this.image, -this.w / 2, -this.w / 2, this.w, this.h)
         } else {
