@@ -19,12 +19,14 @@ export default function sketch(p5) {
     let birdSpriteSheet 
     let boxesSpriteSheet
     let boxImage
+    let backgroundImage
 
     let bird 
     let slingshot 
     let mouseConstraint 
 
     p5.preload = () => {
+        backgroundImage = p5.loadImage('assets/background.png')
         birdsSpriteSheet = p5.loadImage('assets/birds.png', img => {
             birdSpriteSheet = img.get(42.5, 1215, 363, 65)
         })
@@ -44,9 +46,9 @@ export default function sketch(p5) {
         entities.push(new Wall(world, width / 2, height, width, 50))
 
         // player and slingshot
-        bird = new Bird(world, 200, height - 150, birdSpriteSheet.get(0, 0, 75, 65))
+        bird = new Bird(world, 250, height - 150, birdSpriteSheet.get(0, 0, 75, 65))
         entities.push(bird)
-        slingshot = new SlingShot(world, 200, height - 150, bird.body)
+        slingshot = new SlingShot(world, 250, height - 150, bird.body)
         entities.push(slingshot)
         mouseConstraint = MouseConstraint.create(engine, {
             mouse: mouse,
@@ -73,6 +75,7 @@ export default function sketch(p5) {
 
     p5.draw = () => {
         p5.background(p5.color(225, 225, 225))
+        p5.background(backgroundImage)
         for (let entity of entities) {
             entity.draw(p5)
         }
